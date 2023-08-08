@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+</head>
+<body>
+    <h1>Send Message</h1>
+    <form action="/send_message" method="post">
+        <select name="user">
+            {% for user in users %}
+            <option value="{{ user[0] }}">{{ user[0] }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="message" placeholder="Message">
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

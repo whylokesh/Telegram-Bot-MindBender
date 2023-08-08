@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>User Data</title>
+</head>
+<body>
+
+    <h1 class="m-3">Send Message</h1>
+    <hr>
+    <form action="/send_message" method="post" class="d-flex flex-row m-3  my-4 justify-content-center  ">
+        <select class="m-2 nav-link dropdown-toggle" name="user">
+            {% for user in users %}
+            <option value="{{ user[0] }}" class="">{{ user[0] }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" class="form-control w-25 m-2" name="message" placeholder="Message">
+        <button class="btn btn-success m-2 px-4" type="submit"> Send </button>
+    </form>
+
+    <br>
+    <h1 class="m-3">User Data</h1>
+    <hr>
+    <div class="d-flex justify-content-center">
+    <table class="table table-striped-columns m-3 my-4 table-bordered w-100" >
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Chat ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <BR></BR>
+    
+</body>
+</html>
